@@ -1,0 +1,11 @@
+name = "jettia-inscricoes-2027"
+compatibility_date = "2026-01-01"
+pages_build_output_dir = "public"
+
+# Banco D1 ligado às Functions (criado com: npx wrangler d1 create jettia-inscricoes)
+# Depois de copiar o database_id gerado, descomente o bloco abaixo.
+#
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "jettia-inscricoes"
+# database_id = "COLE-O-ID-AQUI"

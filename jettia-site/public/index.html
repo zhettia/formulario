@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscrições 2027 · Grupo Folclórico Ucraniano Jettia</title>
+  <meta name="description" content="Inscrições 2027 para o Grupo Folclórico Ucraniano Jettia, de Antônio Olinto (PR).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bordado-fundo" aria-hidden="true"></div>
+
+  <main>
+    <!-- ABERTURA: MRIIA → JETTIA → JETTIA 15 ANOS (flutuante) -->
+    <section class="abertura" id="abertura" aria-label="Apresentação">
+      <div class="palco" id="palco">
+        <img class="logo" id="logo-2" width="900" height="954" decoding="async" src="assets/logo-jettia.webp" alt="Logo do Grupo Folclórico Ucraniano Jettia">
+        <img class="logo" id="logo-3" width="900" height="1006" decoding="async" src="assets/logo-jettia-15.webp" alt="Logo comemorativa Jettia 15 anos">
+      </div>
+
+      <button type="button" class="pular" id="pular">Pular apresentação</button>
+
+      <div class="conteudo" id="conteudo">
+        <h1>INSCRIÇÕES 2027</h1>
+        <p class="subtitulo">Grupo Folclórico Ucraniano Jettia</p>
+        <p class="frase">“Preservando nossas raízes, celebrando nossa cultura e construindo novas histórias.”</p>
+        <button type="button" class="btn-principal" id="btn-inscrever">INSCREVER-SE</button>
+      </div>
+    </section>
+
+    <!-- FORMULÁRIO EM ETAPAS -->
+    <section class="formulario" id="formulario" hidden>
+      <div class="cartao">
+        <header class="cabecalho-form">
+          <h2 id="titulo-form" tabindex="-1">Ficha de inscrição</h2>
+          <p id="etapa-texto" class="etapa-texto" aria-live="polite"></p>
+        </header>
+
+        <div class="progresso" role="progressbar" aria-label="Progresso da inscrição" aria-valuemin="0" aria-valuemax="100">
+          <div id="barra"></div>
+        </div>
+        <ol class="lista-etapas" id="lista-etapas"></ol>
+
+        <form id="form-inscricao" novalidate>
+
+          <!-- ETAPA 1 -->
+          <fieldset class="etapa" data-etapa="1">
+            <legend>Dados pessoais</legend>
+
+            <div class="campo">
+              <label class="rotulo" for="nome">Nome completo *</label>
+              <input type="text" id="nome" name="nome" required minlength="3" maxlength="120" autocomplete="name">
+            </div>
+
+            <div class="grade-2">
+              <div class="campo">
+                <label class="rotulo" for="nascimento">Data de nascimento *</label>
+                <input type="date" id="nascimento" name="nascimento" required>
+              </div>
+              <div class="campo">
+                <label class="rotulo" for="idade">Idade</label>
+                <input type="text" id="idade" name="idade" readonly tabindex="-1" aria-readonly="true">
+              </div>
+            </div>
+
+            <div class="campo">
+              <label class="rotulo" for="cpf">CPF *</label>
+              <input type="text" id="cpf" name="cpf" required inputmode="numeric" placeholder="000.000.000-00" maxlength="14" autocomplete="off">
+            </div>
+
+            <div class="grade-2">
+              <div class="campo">
+                <label class="rotulo" for="cidade">Cidade onde reside *</label>
+                <input type="text" id="cidade" name="cidade" required maxlength="80" autocomplete="address-level2">
+              </div>
+              <div class="campo">
+                <label class="rotulo" for="bairro">Bairro ou comunidade *</label>
+                <input type="text" id="bairro" name="bairro" required maxlength="80">
+              </div>
+            </div>
+
+            <div class="grade-2">
+              <div class="campo">
+                <label class="rotulo" for="telefone">Telefone/WhatsApp *</label>
+                <input type="tel" id="telefone" name="telefone" required inputmode="tel" placeholder="(00) 00000-0000" maxlength="15" autocomplete="tel">
+              </div>
+              <div class="campo">
+                <label class="rotulo" for="email">E-mail *</label>
+                <input type="email" id="email" name="email" required maxlength="120" autocomplete="email">
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- ETAPA 2 -->
+          <fieldset class="etapa" data-etapa="2" hidden>
+            <legend>Informações sobre a participação</legend>
+
+            <div class="campo">
+              <span class="rotulo">Você já participou de algum grupo folclórico? *</span>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="ja_participou_grupo" value="sim" required><span>Sim</span></label>
+                <label class="chip"><input type="radio" name="ja_participou_grupo" value="nao"><span>Não</span></label>
+              </div>
+            </div>
+
+            <div class="campo">
+              <span class="rotulo">Você já possui experiência com dança? *</span>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="experiencia_danca" value="sim" required><span>Sim</span></label>
+                <label class="chip"><input type="radio" name="experiencia_danca" value="nao"><span>Não</span></label>
+              </div>
+            </div>
+
+            <div class="campo" id="campo-disponibilidade">
+              <span class="rotulo">Qual sua disponibilidade para os ensaios? * <small>(marque uma ou mais)</small></span>
+              <label class="opcao"><input type="checkbox" name="disponibilidade" value="semana"> Durante a semana</label>
+              <label class="opcao"><input type="checkbox" name="disponibilidade" value="sabado"> Aos sábados</label>
+              <label class="opcao"><input type="checkbox" name="disponibilidade" value="domingo"> Aos domingos</label>
+              <label class="opcao"><input type="checkbox" name="disponibilidade" value="flexivel"> Flexibilidade de horários</label>
+            </div>
+
+            <div class="campo">
+              <label class="rotulo" for="motivo">Por que deseja fazer parte do Grupo Jettia? *</label>
+              <textarea id="motivo" name="motivo" rows="6" required maxlength="1500" placeholder="Conte um pouco sobre sua motivação (mínimo de 20 caracteres)."></textarea>
+            </div>
+          </fieldset>
+
+          <!-- ETAPA 3 (somente menores de 18 anos) -->
+          <fieldset class="etapa" data-etapa="3" hidden>
+            <legend>Responsável legal</legend>
+            <p class="ajuda">Esta etapa aparece porque o participante é menor de 18 anos.</p>
+
+            <div class="campo">
+              <label class="rotulo" for="resp_nome">Nome completo do responsável *</label>
+              <input type="text" id="resp_nome" name="resp_nome" maxlength="120">
+            </div>
+            <div class="grade-2">
+              <div class="campo">
+                <label class="rotulo" for="resp_cpf">CPF do responsável *</label>
+                <input type="text" id="resp_cpf" name="resp_cpf" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" autocomplete="off">
+              </div>
+              <div class="campo">
+                <label class="rotulo" for="resp_telefone">Telefone/WhatsApp do responsável *</label>
+                <input type="tel" id="resp_telefone" name="resp_telefone" inputmode="tel" placeholder="(00) 00000-0000" maxlength="15">
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- ETAPA 4 -->
+          <fieldset class="etapa" data-etapa="4" hidden>
+            <legend>Tamanhos de vestuário e uniforme</legend>
+
+            <div class="campo">
+              <span class="rotulo">Tamanho da camiseta *</span>
+              <div class="chips" data-campo="camiseta" data-opcoes="PP,P,M,G,GG,XGG"></div>
+            </div>
+            <div class="campo">
+              <span class="rotulo">Tamanho da calça *</span>
+              <div class="chips" data-campo="calca" data-opcoes="PP,P,M,G,GG,XGG"></div>
+            </div>
+            <div class="campo">
+              <span class="rotulo">Número do calçado *</span>
+              <div class="chips" data-campo="calcado" data-min="28" data-max="46"></div>
+            </div>
+            <div class="campo" id="campo-calcado-outro" hidden>
+              <label class="rotulo" for="calcado_outro">Informe a numeração</label>
+              <input type="text" id="calcado_outro" name="calcado_outro" maxlength="10" inputmode="numeric">
+            </div>
+            <div class="campo">
+              <span class="rotulo">Tamanho do moletom *</span>
+              <div class="chips" data-campo="moletom" data-opcoes="PP,P,M,G,GG,XGG"></div>
+            </div>
+          </fieldset>
+
+          <!-- ETAPA 5 -->
+          <fieldset class="etapa" data-etapa="5" hidden>
+            <legend>Autorizações e declarações</legend>
+
+            <div class="termo">
+              <p><strong>Sobre seus dados:</strong> as informações serão usadas somente para a organização das inscrições e das atividades do Grupo Folclórico Ucraniano Jettia, armazenadas com segurança e tratadas conforme a Lei Geral de Proteção de Dados (LGPD). Responsável pelo tratamento: <em>[NOME DO RESPONSÁVEL PELO GRUPO]</em>. Para revogar autorizações ou solicitar a exclusão dos dados, escreva para <em>[E-MAIL DE CONTATO]</em>.</p>
+            </div>
+
+            <label class="opcao">
+              <input type="checkbox" name="aut_participacao" required>
+              <span>Autorizo a participação do inscrito nas atividades do Grupo Folclórico Ucraniano Jettia. *</span>
+            </label>
+            <label class="opcao">
+              <input type="checkbox" name="aut_imagem">
+              <span>Autorizo o uso de imagens e vídeos do inscrito para divulgação das atividades do grupo.</span>
+            </label>
+            <label class="opcao">
+              <input type="checkbox" name="decl_veracidade" required>
+              <span>Declaro que as informações fornecidas são verdadeiras. *</span>
+            </label>
+            <p class="ajuda">Para menores de 18 anos, estas autorizações devem ser confirmadas pelo responsável legal.</p>
+          </fieldset>
+
+          <!-- REVISÃO -->
+          <fieldset class="etapa" data-etapa="revisao" hidden>
+            <legend>Revisão da inscrição</legend>
+            <p class="ajuda">Confira os dados abaixo. Use “Editar” para corrigir qualquer informação.</p>
+            <div id="revisao"></div>
+          </fieldset>
+
+          <p id="erro" class="erro" role="alert"></p>
+
+          <div class="navegacao">
+            <button type="button" class="btn-secundario" id="voltar">VOLTAR</button>
+            <button type="button" class="btn-principal" id="continuar">CONTINUAR</button>
+            <button type="submit" class="btn-principal" id="finalizar" hidden>FINALIZAR INSCRIÇÃO</button>
+          </div>
+
+          <!-- Campo armadilha contra robôs: invisível para pessoas -->
+          <input type="text" name="site" class="armadilha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        </form>
+      </div>
+    </section>
+
+    <!-- SUCESSO (só aparece após o servidor confirmar o armazenamento) -->
+    <section class="sucesso" id="sucesso" hidden>
+      <img src="assets/logo-jettia-15.webp" alt="Logo Jettia 15 anos" class="sucesso-logo" width="900" height="1006" decoding="async">
+      <h2>INSCRIÇÃO REALIZADA COM SUCESSO!</h2>
+      <p class="protocolo" id="protocolo"></p>
+      <p>“O Grupo Folclórico Ucraniano Jettia agradece seu interesse em fazer parte da nossa história!”</p>
+      <p>“Estamos felizes em receber você para compartilhar nossa cultura, tradição e paixão pela dança.”</p>
+      <button type="button" class="btn-principal" id="voltar-inicio">VOLTAR AO INÍCIO</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
